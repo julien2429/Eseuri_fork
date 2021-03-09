@@ -7,3 +7,33 @@ h2 {
     @apply bg-blue-500;
   }
 }
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  letter-spacing: -0.07em;
+  font-family: 'Carme', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.6px;
+}
+:root {
+  --alb: #fcfaf9;
+  --negru: #000000;
+  --l_row: 74.4px;
+  --l_gap_row: 18px;
+  --l_column: 136.8px;
+  --l_gap_column: 28.8px;
+}
+* {
+  box-sizing: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+::-webkit-scrollbar {
+  display: none;
+}
