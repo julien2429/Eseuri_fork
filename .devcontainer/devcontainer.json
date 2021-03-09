@@ -1,0 +1,51 @@
+{
+  "forwardPorts": [3000, 5000],
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "css.validate": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[go]": {
+      "editor.insertSpaces": false,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      },
+      "editor.defaultFormatter": "golang.go"
+    },
+    "[svelte]": {
+      "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": ["--fast", "--enable-all", "--new"],
+    "go.useLanguageServer": true,
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    // Collaboration
+    "ms-vsliveshare.vsliveshare",
+    // Debugging
+    "msjsdiag.debugger-for-chrome",
+    // Helpers
+    "gruntfuggly.todo-tree",
+    "meganrogge.template-string-converter",
+    "technosophos.vscode-make",
+    // Language plugins
+    "bradlc.vscode-tailwindcss",
+    "bungcip.better-toml",
+    "davidanson.vscode-markdownlint",
+    "golang.go",
+    "redhat.vscode-yaml",
+    "svelte.svelte-vscode",
+    "visualstudioexptteam.vscodeintellicode",
+    // Linters & formatters
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    // Tools
+    "ms-azuretools.vscode-docker",
+    "mtxr.sqltools",
+    "shd101wyy.markdown-preview-enhanced"
+  ]
+}

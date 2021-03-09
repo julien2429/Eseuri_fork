@@ -1,0 +1,10 @@
+{
+  "arrowParens": "avoid",
+  "semi": false,
+  "singleQuote": true,
+  "htmlWhitespaceSensitivity": "css",
+  "svelteAllowShorthand": true,
+  "svelteIndentScriptAndStyle": true,
+  "svelteSortOrder": "scripts-markup-options-styles",
+  "svelteBracketNewLine": true
+}
