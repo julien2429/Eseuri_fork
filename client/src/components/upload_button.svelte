@@ -1,4 +1,6 @@
-<button class="bg-orange rounded-full outline-none m-auto">
+<button
+  class="bg-orange rounded-full m-auto focus:outline-none outline-none focus:md:underline"
+>
   <img class="mx-auto my-auto" alt="upload" src="../assets/VectorCross.svg" />
 </button>
 

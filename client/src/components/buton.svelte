@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+  import Link from './Link.svelte'
   // TODO: Use Link component and remove shadow (add white property)
 
   import { prefetch, url } from '@roxi/routify'
@@ -7,22 +8,19 @@
    * The location to navigate to
    * @type {string}
    */
-  export let link
+  export let link: string
+  export let alive: boolean
   /**
    * Toggle this if the button should be white
    */
   export let white = false
 </script>
 
-<a
-  href={$url(link)}
-  use:prefetch
-  class:text-white={white}
-  class:text-black={!white}
-  class="stiluri"
->
-  <slot />
-</a>
+<div class:text-white={white} class:text-black={!white} class="stiluri">
+  <Link bind:alive href={link}>
+    <slot />
+  </Link>
+</div>
 
 <style>
   .stiluri {
