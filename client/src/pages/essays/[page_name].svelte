@@ -76,16 +76,16 @@
           </Link>
         </div>
         <div class="col-start-3 col-span-1 m-auto">
-          <Buton>Cauta</Buton>
+          <Buton bind:alive link="/search/Cauta">Cauta</Buton>
         </div>
         <div class="col-start-4 col-span-1 m-auto">
-          <Buton>Plagiat</Buton>
+          <Buton bind:alive link="../">Plagiat</Buton>
         </div>
         <div class="col-start-5 col-span-1 m-auto">
-          <Buton>Profesori</Buton>
+          <Buton bind:alive link="../">Profesori</Buton>
         </div>
         <div class="col-start-6 col-span-1 m-auto">
-          <Buton>Contul meu</Buton>
+          <Buton bind:alive link="../">Contul meu</Buton>
         </div>
       </div>
       <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">

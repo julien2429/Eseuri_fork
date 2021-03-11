@@ -10,6 +10,7 @@
   import { store as window } from '../components/Window.svelte'
   import { onMount } from 'svelte'
   import Buton from '../components/buton.svelte'
+  import Search from '../components/search_bar.svelte'
   import UploadButton from '../components/upload_button.svelte'
   import Eseu from '../components/eseu.svelte'
   import Logo from '../components/logo.svelte'
@@ -105,16 +106,19 @@
     <div class="container">
       <div class="top_bar">
         <Logo />
-        <input
-          type="text"
-          class="col-start-3 col-end-6 z-3 my-auto bg-white bg-opacity-0 placeholder-white text-white"
-          placeholder="Cauta titluri si personaje"
-        />
-        <Buton white={true}>Intra in cont</Buton>
+        <div class="col-start-3 col-end-6 my-auto">
+          <Search
+            page_name={undefined}
+            isAtHome={true}
+            isBig={false}
+            bind:alive
+          />
+        </div>
+        <Buton white={true} {alive} link="../">Intra in cont</Buton>
       </div>
       <div class="ajutator">
-        <Buton white={true}>Plagiat</Buton>
-        <Buton white={true}>Profesori</Buton>
+        <Buton white={true} {alive} link="../">Plagiat</Buton>
+        <Buton white={true} {alive} link="../">Profesori</Buton>
       </div>
       <div class="tip_referat ">
         <button
@@ -136,14 +140,14 @@
         >
           {#each eseuri as { name, scriitor }}
             <div class="h-full w-full">
-              <Eseu bind:alive {name} {scriitor} />
+              <Eseu bind:alive {name} {scriitor} white={false} />
             </div>
           {/each}
         </div>
       {:else}
         <div class="eseuri" transition:fly={{ x: 100, duration: 100 }}>
           {#each caracterizari as { name, scriitor }}
-            <Eseu bind:alive {name} {scriitor} />
+            <Eseu bind:alive {name} {scriitor} white={false} />
           {/each}
         </div>
       {/if}
