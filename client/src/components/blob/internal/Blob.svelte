@@ -12,7 +12,7 @@
   }
   export let width: number
   export let height: number
-
+  export let zIndex: number
   let innerHeight: number, innerWidth: number
 
   $: flipX = flip.x * 180
@@ -22,7 +22,7 @@
 <div
   transition:fade={{ duration: 300, easing }}
   class="fixed"
-  style="--x: {x}px; --y: {y}px; --scale: {scale}; --rotate: {rotate}deg; --flipX: {flipX}deg; --flipY: {flipY}deg;"
+  style="--x: {x}px; --y: {y}px; --scale: {scale}; --rotate: {rotate}deg; --flipX: {flipX}deg; --flipY: {flipY}deg; --z-index: {zIndex};"
   bind:offsetWidth={width}
   bind:offsetHeight={height}
 >
@@ -33,7 +33,7 @@
 
 <style>
   div {
-    z-index: -1;
+    z-index: var(--z-index);
     top: var(--y);
     left: var(--x);
     transform: scale(var(--scale)) rotate(var(--rotate)) rotateX(var(--flipX))

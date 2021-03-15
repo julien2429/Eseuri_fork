@@ -19,6 +19,7 @@
   scale={$store.scale}
   rotate={$store.rotate}
   flip={$store.flip}
+  zIndex={$store.zIndex}
   bind:width
   bind:height
 >

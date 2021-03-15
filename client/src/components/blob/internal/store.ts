@@ -16,6 +16,7 @@ export default () => {
         x: 0,
         y: 0,
       },
+      zIndex: -1,
     },
     {
       duration: 300,
