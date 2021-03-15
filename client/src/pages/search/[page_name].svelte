@@ -57,6 +57,7 @@
         x: 0,
         y: 0,
       },
+      zIndex: -1,
     }
     $red = {
       x: $window.width + red.width * 0.6,
@@ -67,6 +68,7 @@
         x: 1,
         y: 0,
       },
+      zIndex: -1,
     }
     $blue = {
       x: ($window.width - blue.width * 0.8) / 2,
@@ -77,6 +79,7 @@
         x: 0,
         y: 0,
       },
+      zIndex: -1,
     }
     mounted = true
   })
