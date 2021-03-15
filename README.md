@@ -17,8 +17,9 @@ Dacă ești pe Windows, va trebui să instalezi înainte de toate [Windows Subsy
 [4]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 
-Pentru initializare: chown root client
-                     cd client
-                     pnpm i
-                     
-                     pnpm run dev
+Pentru initializare: 
+
+[//]: # chown root client
+[//]: # cd client
+[//]: # pnpm i                     
+[//]: # pnpm run dev
