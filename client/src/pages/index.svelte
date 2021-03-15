@@ -63,6 +63,7 @@
         x: 0,
         y: 0,
       },
+      zIndex: -1,
     }
     $red = {
       x: $window.width - red.width * 1.5,
@@ -73,6 +74,7 @@
         x: 1,
         y: 0,
       },
+      zIndex: -1,
     }
     $blue = {
       x: ($window.width - blue.width * 0.8) / 2,
@@ -83,6 +85,7 @@
         x: 0,
         y: 0,
       },
+      zIndex: -1,
     }
     mounted = true
   })
@@ -114,11 +117,11 @@
             bind:alive
           />
         </div>
-        <Buton white={true} {alive} link="../">Intra in cont</Buton>
+        <Buton white={true} {alive} link="./">Intra in cont</Buton>
       </div>
       <div class="ajutator">
-        <Buton white={true} {alive} link="../">Plagiat</Buton>
-        <Buton white={true} {alive} link="../">Profesori</Buton>
+        <Buton white={true} {alive} link="./">Plagiat</Buton>
+        <Buton white={true} {alive} link="./">Profesori</Buton>
       </div>
       <div class="tip_referat ">
         <button
@@ -145,7 +148,7 @@
           {/each}
         </div>
       {:else}
-        <div class="eseuri" transition:fly={{ x: 100, duration: 100 }}>
+        <div class="eseuri " transition:fly={{ x: 100, duration: 100 }}>
           {#each caracterizari as { name, scriitor }}
             <Eseu bind:alive {name} {scriitor} white={false} />
           {/each}
