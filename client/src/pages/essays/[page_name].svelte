@@ -2,14 +2,29 @@
   import type { Readable } from 'svelte/store'
   import { writable } from 'svelte/store'
 
+  /**
+   * The key used to retrieve the context from children components.
+   */
   export const contextKey = {}
 
   interface Store {
+    /**
+     * True if the work is bookmarked.
+     */
     readonly saved: boolean
+    /**
+     * The name of the opened work.
+     */
     readonly work: string
   }
   export interface Context extends Readable<Store> {
+    /**
+     * Bookmarks the work, if not already.
+     */
     save(): void
+    /**
+     * Removes the work from bookmarks, if bookmarked before.
+     */
     unsave(): void
   }
 
@@ -19,8 +34,12 @@
    * @param work The name of the opened work.
    */
   function createContext(work: string): Context {
+    /**
+     * True if the work is bookmarked.
+     */
     let saved = false
-    let { subscribe, update } = writable<Store>({
+    const { subscribe, update } = writable<Store>({
+      // Getters are used so the values cannot be modified from outside.
       get saved() {
         return saved
       },
@@ -32,6 +51,9 @@
     return {
       subscribe,
       save() {
+        // Update is called so the store notifies the change to
+        // the subscribers, even though no actual value in the
+        // store itself changes.
         update(v => {
           saved = true
           return v
