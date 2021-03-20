@@ -1,18 +1,12 @@
 <script lang="ts">
-  import Eseu from '../../components/eseu.svelte'
   import Link from '../../components/Link.svelte'
   import Logo from '../../components/logo.svelte'
   import Buton from '../../components/buton.svelte'
   import UploadButton from '../../components/upload_button.svelte'
-  import Fav_button from '../../components/Fav_Button.svelte'
-  import Next from '../../components/next_essay.svelte'
-  import Back from '../../components/last_essay.svelte'
-  import { metatags, ready, url, goto } from '@roxi/routify'
   import { store as orange } from '../../components/blob/Orange.svelte'
   import { store as red } from '../../components/blob/Red.svelte'
   import { store as blue } from '../../components/blob/Blue.svelte'
   import { store as window } from '../../components/Window.svelte'
-  import Search from '../../components/search_bar.svelte'
   import { onMount, tick } from 'svelte'
   import { fly, fade } from 'svelte/transition'
   let mounted: boolean = true

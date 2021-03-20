@@ -1,6 +1,7 @@
 <script lang="ts">
   import Link from '../../components/Link.svelte'
   import Logo from '../../components/logo.svelte'
+  import LoginButton from '../../components/LoginButton.svelte'
   import Buton from '../../components/buton.svelte'
   import UploadButton from '../../components/upload_button.svelte'
   import Fav_button from '../../components/Fav_Button.svelte'
@@ -88,7 +89,7 @@
           <Buton bind:alive link="../">Profesori</Buton>
         </div>
         <div class="col-start-6 col-span-1 m-auto">
-          <Buton bind:alive link="../">Contul meu</Buton>
+          <LoginButton bind:alive white={false} />
         </div>
       </div>
       <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">
