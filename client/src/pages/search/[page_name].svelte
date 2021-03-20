@@ -73,7 +73,7 @@
     $blue = {
       x: ($window.width - blue.width * 0.8) / 2,
       y: -blue.height * 0.635 + $window.height * 0.17,
-      scale: 13.5,
+      scale: $window.height / 20,
       rotate: 0,
       flip: {
         x: 0,
@@ -87,7 +87,6 @@
   let saved = false
 
   let alive = true
-  console.log(alive)
   $: if (mounted) {
     $orange.x = -orange.width * 1.4
     $orange.y = $window.height - orange.height
@@ -95,7 +94,6 @@
     $red.y = $window.height - red.height * 0.45
     $blue.x = ($window.width - blue.width * 0.8) / 2
     $blue.y = -blue.height * 0.635 + $window.height * 0.17
-    $blue.scale = 13.5
   }
 </script>
 
@@ -116,7 +114,9 @@
             <Buton white={true} bind:alive link="../">Profesori</Buton>
           </div>
           <div class="col-start-6 col-span-1 m-auto">
-            <Buton white={true} bind:alive link="../">Contul meu</Buton>
+            <Buton white={true} bind:alive link="../my_account"
+              >Contul meu</Buton
+            >
           </div>
         </div>
         <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">
