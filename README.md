@@ -15,3 +15,11 @@ Dacă ești pe Windows, va trebui să instalezi înainte de toate [Windows Subsy
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 [4]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+
+Pentru initializare: 
+
+[//]: # chown root client
+[//]: # cd client
+[//]: # pnpm i                     
+[//]: # pnpm run dev
