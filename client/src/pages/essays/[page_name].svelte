@@ -48,6 +48,8 @@
       },
     })
 
+    // Normally, some fetcch requests to the API would exist
+    // here, instead of a boolean flag.
     return {
       subscribe,
       save() {
@@ -87,6 +89,7 @@
   export let page_name: string
   export let essay_type = true
 
+  // Create the current work's context
   setContext<Context>(contextKey, createContext(page_name))
 
   let mounted: boolean = true
