@@ -1,19 +1,98 @@
+<script context="module" lang="ts">
+  import type { Readable } from 'svelte/store'
+  import { writable } from 'svelte/store'
+
+  /**
+   * The key used to retrieve the context from children components.
+   */
+  export const contextKey = {}
+
+  interface Store {
+    /**
+     * True if the work is bookmarked.
+     */
+    readonly saved: boolean
+    /**
+     * The name of the opened work.
+     */
+    readonly work: string
+  }
+  export interface Context extends Readable<Store> {
+    /**
+     * Bookmarks the work, if not already.
+     */
+    save(): void
+    /**
+     * Removes the work from bookmarks, if bookmarked before.
+     */
+    unsave(): void
+  }
+
+  /**
+   * Creates a context for the current work.
+   *
+   * @param work The name of the opened work.
+   */
+  function createContext(work: string): Context {
+    /**
+     * True if the work is bookmarked.
+     */
+    let saved = false
+    const { subscribe, update } = writable<Store>({
+      // Getters are used so the values cannot be modified from outside.
+      get saved() {
+        return saved
+      },
+      get work() {
+        return decodeURI(work)
+      },
+    })
+
+    // Normally, some fetcch requests to the API would exist
+    // here, instead of a boolean flag.
+    return {
+      subscribe,
+      save() {
+        // Update is called so the store notifies the change to
+        // the subscribers, even though no actual value in the
+        // store itself changes.
+        update(v => {
+          saved = true
+          return v
+        })
+      },
+      unsave() {
+        update(v => {
+          saved = false
+          return v
+        })
+      },
+    }
+  }
+</script>
+
 <script lang="ts">
   import Link from '../../components/Link.svelte'
   import Logo from '../../components/logo.svelte'
   import LoginButton from '../../components/LoginButton.svelte'
   import Buton from '../../components/buton.svelte'
   import UploadButton from '../../components/upload_button.svelte'
-  import Fav_button from '../../components/Fav_Button.svelte'
+  import FavButton from '../../components/Fav_Button.svelte'
   import Next from '../../components/next_essay.svelte'
   import Back from '../../components/last_essay.svelte'
-  import { metatags, ready, url, goto } from '@roxi/routify'
   import { store as orange } from '../../components/blob/Orange.svelte'
   import { store as red } from '../../components/blob/Red.svelte'
   import { store as blue } from '../../components/blob/Blue.svelte'
   import { store as window } from '../../components/Window.svelte'
-  import { onMount, tick } from 'svelte'
-  import { fly, fade } from 'svelte/transition'
+  import { onMount, setContext } from 'svelte'
+  import { fly } from 'svelte/transition'
+
+  export let page_name: string
+  export let essay_type = true
+
+  // Create the current work's context
+  setContext<Context>(contextKey, createContext(page_name))
+
   let mounted: boolean = true
   onMount(() => {
     $orange = {
@@ -51,8 +130,7 @@
     }
     mounted = true
   })
-  export let page_name: string
-  export let essay_type = true
+
   let saved = false
 
   let alive = true
@@ -107,12 +185,7 @@
           {/if}
         </div>
         <div class="col-start-4 col-span-1 my-auto mr-0 ml-auto">
-          <button
-            class=" align-middle focus:outline-none outline-none "
-            on:click={() => (saved = !saved)}
-          >
-            <Fav_button {saved} />
-          </button>
+          <FavButton />
         </div>
       </div>
       <div class="col-start-6 col-span-1 row-start-6 row-span-1 ">
@@ -186,12 +259,7 @@
         </p>
         <div class="evaluare">
           <div class="col-start-1 col-span-1 my-auto  ml-0">
-            <button
-              class=" align-middle focus:outline-none outline-none "
-              on:click={() => (saved = !saved)}
-            >
-              <Fav_button {saved} />
-            </button>
+            <FavButton />
           </div>
         </div>
       </div>
