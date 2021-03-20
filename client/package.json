@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.13.10",
     "@rollup/plugin-typescript": "^8.2.0",
     "@roxi/routify": "^2.14.0",
-    "@svitejs/vite-plugin-svelte": "^0.9.4",
+    "@svitejs/vite-plugin-svelte": "^0.11.1",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/svelte": "^3.0.3",
     "@tsconfig/svelte": "^1.0.10",
@@ -49,7 +49,7 @@
     "ts-jest": "^26.5.3",
     "tslib": "^2.1.0",
     "typescript": "^4.2.3",
-    "vite": "^2.0.5",
+    "vite": "^2.1.2",
     "vite-plugin-windicss": "^0.6.11",
     "windicss": "^2.3.0"
   },
