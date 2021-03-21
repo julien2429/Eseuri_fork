@@ -10,9 +10,7 @@
   import UploadButton from '../components/upload_button.svelte'
   import Eseu from '../components/eseu.svelte'
   import Logo from '../components/logo.svelte'
-  import LofinButton from '../components/LoginButton.svelte'
   import { fly, fade } from 'svelte/transition'
-  import LoginButton from '../components/LoginButton.svelte'
 
   let eseuri = [
     { name: 'Ion', scriitor: 'Liviu Rebreanu' },
@@ -45,14 +43,11 @@
   function show_caracterizari() {
     eseuri_chosen = false
   }
+
   metatags.title = 'Eseuri'
-<<<<<<< HEAD
-  let mounted = false
-=======
 
   let mounted = true
 
->>>>>>> 83b0246d4bd1474050f101ad4be746114ff5a60b
   onMount(() => {
     $orange = {
       x: 0,
@@ -89,7 +84,9 @@
     }
     mounted = true
   })
+
   let alive = true
+
   $: if (mounted) {
     $orange.x = 0
     $orange.y = $window.height - orange.height
@@ -120,37 +117,14 @@
             bind:alive
           />
         </div>
-        <Buton white={true} bind:alive link="/loginto/index"
-          >Intra in cont</Buton
-        >
-      </div>
-      <div class="ajutator">
-        <Buton white={true} bind:alive link="./">Plagiat</Buton>
-        <Buton white={true} bind:alive link="./">Profesori</Buton>
-      </div>
-      <div class="tip_referat ">
-        <button
-          class="bg-white bg-opacity-0 focus:outline-none outline-none focus:md:underline"
-          on:click={show_eseuri}>Eseuri</button
-        >
-        <button
-          class="bg-white bg-opacity-0 focus:outline-none focus:md:underline"
-          on:click={show_caracterizari}>Caracterizari</button
-        >
-      </div>
-      <div class=" grid col-span-1 col-start-6 row-span-1 row-start-3">
-        <UploadButton />
-      </div>
-      {#if eseuri_chosen == true}
-        <div
-          class="eseuri overflow-x-visible"
-          transition:fly={{ x: -100, duration: 100 }}
-        >
-          {#each eseuri as { name, scriitor }}
-            <div class="h-full w-full">
-              <Eseu bind:alive {name} {scriitor} white={false} />
-            </div>
-          {/each}
+        <div class=" row-start-1 row-span-1 col-start-6 col-span-1 my-auto">
+          <Buton white={true} bind:alive link="./loginto">Intra in cont</Buton>
+        </div>
+        <div class="col-start-4 col-end-5 row-start-2  my-auto ">
+          <Buton white={true} bind:alive link="./">Plagiat</Buton>
+        </div>
+        <div class="col-start-5 col-end-6 row-start-2  my-auto">
+          <Buton white={true} bind:alive link="./">Profesori</Buton>
         </div>
         <div class=" col-start-3 col-end-4 row-start-4  m-auto my-auto ">
           <button

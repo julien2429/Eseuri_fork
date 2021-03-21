@@ -1,35 +1,19 @@
 <script lang="ts">
-  import Eseu from '../../components/eseu.svelte'
   import Link from '../../components/Link.svelte'
   import Logo from '../../components/logo.svelte'
-  import Buton from '../../components/buton.svelte'
-  import UploadButton from '../../components/upload_button.svelte'
-  import Fav_button from '../../components/Fav_Button.svelte'
-  import Next from '../../components/next_essay.svelte'
-  import Back from '../../components/last_essay.svelte'
-  import { metatags, ready, url, goto } from '@roxi/routify'
+  import { metatags } from '@roxi/routify'
   import { store as orange } from '../../components/blob/Orange.svelte'
   import { store as red } from '../../components/blob/Red.svelte'
   import { store as blue } from '../../components/blob/Blue.svelte'
   import { store as window } from '../../components/Window.svelte'
-  import Search from '../../components/search_bar.svelte'
-  import { fly, fade } from 'svelte/transition'
-  import { cubicOut as easing } from 'svelte/easing'
-  import { backIn } from 'svelte/easing'
+  import { fly } from 'svelte/transition'
   import { onMount } from 'svelte'
-  import About from '../about.svelte'
-  import App from '../../App.svelte'
 
-  let eseuri_chosen = true
-  function show_eseuri() {
-    eseuri_chosen = true
-  }
-
-  let name = 'Scrie-ți aici numele de familie...'
-  let surname = 'Scrie-l aici prenumele'
-  let school = 'Scrieți aici școala de proveniență...'
-  function selectClick() {}
+  let name = ''
+  let surname = ''
+  let school = ''
   metatags.title = 'Eseuri'
+
   let mounted = false
   onMount(() => {
     $orange = {
@@ -94,7 +78,7 @@
           </div>
 
           <div class="text row-start-4 row-end-4 ">
-            <div class="grid grid-rows-1 grid-cols-6 gap-x-0 gap-y-0">
+            <div class="grid grid-rows-1 grid-cols-6 gap-x-7 gap-y-2">
               <div class="col-start-1 col-span-1">Numele tău</div>
               <div class="col-start-2 col-span-4">
                 <input
@@ -164,7 +148,7 @@
             <div class="gata">
               <button
                 ><div class="butt ">
-                  <Link href="../" bind:alive>Sunt gata</Link>
+                  <Link href="/" bind:alive>Sunt gata</Link>
                 </div></button
               >
             </div>
@@ -172,7 +156,7 @@
           <div class="col-start-4">
             <button
               ><div class="butt ">
-                <Link href="../" bind:alive>Înapoi</Link>
+                <Link href="/" bind:alive>Înapoi</Link>
               </div></button
             >
           </div>
