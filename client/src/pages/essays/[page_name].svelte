@@ -131,8 +131,6 @@
     mounted = true
   })
 
-  let saved = false
-
   let alive = true
 
   $: if (mounted) {
