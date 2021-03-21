@@ -16,7 +16,7 @@
 
   let eseuri = [
     { name: 'Ion', scriitor: 'Liviu Rebreanu' },
-    { name: 'O scrisoare pierduta', scriitor: 'I.L. Caragiale' },
+    { name: 'O scrisoare gasita', scriitor: 'I.L. Caragiale' },
     {
       name: 'Ultima noapte de dragoste. Intaia noapte de razboi',
       scriitor: 'Camil Petrescu',
