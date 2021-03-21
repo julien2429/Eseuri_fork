@@ -15,12 +15,3 @@ Dacă ești pe Windows, va trebui să instalezi înainte de toate [Windows Subsy
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 [4]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-
-- [x] Homepage-Julien
-- [x] Search Page-Julien
-- [x] Essay-Julien
-- [ ] Upload
-- [ ] Upload configure
-- [x] My Account -Julien
-- [ ] Login
-- [ ] Register
