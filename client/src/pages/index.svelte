@@ -140,7 +140,7 @@
             on:click={show_caracterizari}>Caracterizari</button
           >
         </div>
-        <div class="col-span-1 col-start-6 row-span-1 row-start-3">
+        <div class="col-span-1 col-start-6 row-span-1 row-start-3 mx-auto">
           <UploadButton />
         </div>
         {#if eseuri_chosen == true}
