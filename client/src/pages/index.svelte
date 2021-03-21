@@ -1,8 +1,4 @@
 <script lang="ts">
-  import { Carousel } from 'renderless-svelte'
-  import type { CarouselControls } from 'renderless-svelte'
-  import Queue from '../queue'
-  import Link from '../components/Link.svelte'
   import { goto, metatags, ready, url } from '@roxi/routify'
   import { store as orange } from '../components/blob/Orange.svelte'
   import { store as red } from '../components/blob/Red.svelte'
@@ -14,9 +10,10 @@
   import UploadButton from '../components/upload_button.svelte'
   import Eseu from '../components/eseu.svelte'
   import Logo from '../components/logo.svelte'
+  import LofinButton from '../components/LoginButton.svelte'
   import { fly, fade } from 'svelte/transition'
-  import { cubicOut as easing } from 'svelte/easing'
-  import { backIn } from 'svelte/easing'
+  import LoginButton from '../components/LoginButton.svelte'
+
   let eseuri = [
     { name: 'Ion', scriitor: 'Liviu Rebreanu' },
     { name: 'O scrisoare pierduta', scriitor: 'I.L. Caragiale' },
@@ -49,7 +46,13 @@
     eseuri_chosen = false
   }
   metatags.title = 'Eseuri'
+<<<<<<< HEAD
   let mounted = false
+=======
+
+  let mounted = true
+
+>>>>>>> 83b0246d4bd1474050f101ad4be746114ff5a60b
   onMount(() => {
     $orange = {
       x: 0,
@@ -88,6 +91,7 @@
   })
   let alive = true
   $: if (mounted) {
+    $orange.x = 0
     $orange.y = $window.height - orange.height
     $red.x = $window.width - red.width * 1.5
     $red.y = $window.height - red.height * 0.45
@@ -97,14 +101,18 @@
 </script>
 
 {#if alive}
-  <div
-    class="parent relative"
-    transition:fly={{ y: -$window.height, duration: 300 }}
-  >
-    <div class="container">
-      <div class="top_bar">
-        <Logo />
-        <div class="col-start-3 col-end-6 my-auto">
+  <div class="w-full flex flex-row justify-center flex-wrap relative">
+    <div
+      class=" z-0 relative mt-xlg  "
+      transition:fly={{ y: -$window.height, duration: 300 }}
+    >
+      <div
+        class="container relative w-full grid gap-x-l_gap_column gap-y-l_gap_row  mx-md "
+      >
+        <div class="row-start-1 row-span-1 col-start-1  col-span-1 my-auto">
+          <Logo />
+        </div>
+        <div class=" row-start-1 row-span-1 col-start-3 col-end-6 my-auto">
           <Search
             page_name={undefined}
             isAtHome={true}
@@ -144,71 +152,60 @@
             </div>
           {/each}
         </div>
-      {:else}
-        <div class="eseuri " transition:fly={{ x: 100, duration: 100 }}>
-          {#each caracterizari as { name, scriitor }}
-            <Eseu bind:alive {name} {scriitor} white={false} />
-          {/each}
+        <div class=" col-start-3 col-end-4 row-start-4  m-auto my-auto ">
+          <button
+            class="  bg-white bg-opacity-0 focus:outline-none outline-none focus:md:underline "
+            on:click={show_eseuri}>Eseuri</button
+          >
         </div>
-      {/if}
+        <div class="col-start-4 col-end-5 row-start-4  m-auto my-auto">
+          <button
+            class="bg-white bg-opacity-0 focus:outline-none focus:md:underline  my-auto"
+            on:click={show_caracterizari}>Caracterizari</button
+          >
+        </div>
+        <div class="col-span-1 col-start-6 row-span-1 row-start-3">
+          <UploadButton />
+        </div>
+        {#if eseuri_chosen == true}
+          <div
+            class="eseuri grid row-start-5  col-start-1 col-end-7 overflow-x-visible w-full h-full gap-x-l_gap_column gap-y-l_gap_row "
+            transition:fly={{ x: -100, duration: 100 }}
+          >
+            {#each eseuri as { name, scriitor }}
+              <div rel="preload" class="h-full w-full">
+                <Eseu bind:alive {name} {scriitor} white={false} />
+              </div>
+            {/each}
+          </div>
+        {:else}
+          <div
+            class="eseuri grid row-start-5 col-start-1 col-end-7 overflow-x-visible w-full h-full gap-x-l_gap_column gap-y-l_gap_row "
+            transition:fly={{ x: 100, duration: 100 }}
+          >
+            {#each caracterizari as { name, scriitor }}
+              <Eseu bind:alive {name} {scriitor} white={false} />
+            {/each}
+          </div>
+        {/if}
+      </div>
     </div>
   </div>
 {/if}
 
 <style>
   .eseuri {
-    grid-column: 1/-1;
-    grid-row: 5;
-    display: inherit;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc(var(--l_column) * 2 + var(--l_gap_column)), 1fr)
+    );
     grid-auto-rows: calc(var(--l_row) * 2 + var(--l_gap_row));
-    column-gap: 30px;
-    row-gap: inherit;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-  }
-  .top_bar {
-    grid-column: 1 / -1;
-    grid-row: 1 / span 1;
-    display: inherit;
-    grid-template-columns: inherit;
-    column-gap: inherit;
-    height: 100%;
-  }
-  .ajutator {
-    grid-column: 4/-1;
-    grid-row: 2 / span 1;
-    row-gap: inherit;
-    display: inherit;
-    grid-template-columns: repeat(2, var(--l_column));
-    column-gap: inherit;
-    height: 100%;
-  }
-  .tip_referat {
-    grid-column: 3 / -1;
-    grid-row: 4 / span 1;
-    display: inherit;
-    grid-template-columns: repeat(2, var(--l_column));
-    column-gap: inherit;
-    height: 100%;
-  }
-  .parent {
-    margin-top: 70px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: fit-content;
-    z-index: 1;
+    max-width: calc(var(--l_column) * 6 + var(--l_gap_column) * 5);
   }
   .container {
-    position: relative;
-    width: 100%;
-    display: grid;
-    column-gap: var(--l_gap_column);
     background-color: transparent;
-    grid-template-columns: repeat(6, var(--l_column));
+    grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: var(--l_row);
-    row-gap: var(--l_gap_row);
-    z-index: 3;
+    max-width: calc(var(--l_column) * 6 + var(--l_gap_column) * 5);
   }
 </style>

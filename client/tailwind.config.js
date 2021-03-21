@@ -53,6 +53,11 @@ const config = {
       sm: '0.625rem',
       md: '1.25rem',
       lg: '1.875rem',
+      xlg: '3.700rem',
+      l_row: '4.133rem',
+      l_gap_row: '1.000rem',
+      l_column: '7.555rem',
+      l_gap_column: '1.600rem',
     },
     borderRadius: {
       DEFAULT: '0.625rem',

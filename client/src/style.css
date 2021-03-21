@@ -23,10 +23,10 @@ body {
 :root {
   --alb: #fcfaf9;
   --negru: #000000;
-  --l_row: 74.4px;
-  --l_gap_row: 18px;
-  --l_column: 136.8px;
-  --l_gap_column: 28.8px;
+  --l_row: 4.133rem;
+  --l_gap_row: 1rem;
+  --l_column: 7.6rem;
+  --l_gap_column: 1.6rem;
 }
 * {
   box-sizing: inherit;

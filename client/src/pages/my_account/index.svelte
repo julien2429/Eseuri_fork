@@ -1,23 +1,21 @@
 <script lang="ts">
-  import Eseu from '../../components/eseu.svelte'
   import Link from '../../components/Link.svelte'
   import Logo from '../../components/logo.svelte'
   import Buton from '../../components/buton.svelte'
   import UploadButton from '../../components/upload_button.svelte'
-  import Fav_button from '../../components/Fav_Button.svelte'
-  import Next from '../../components/next_essay.svelte'
-  import Back from '../../components/last_essay.svelte'
-  import { metatags, ready, url, goto } from '@roxi/routify'
   import { store as orange } from '../../components/blob/Orange.svelte'
   import { store as red } from '../../components/blob/Red.svelte'
   import { store as blue } from '../../components/blob/Blue.svelte'
   import { store as window } from '../../components/Window.svelte'
-  import Search from '../../components/search_bar.svelte'
   import { onMount, tick } from 'svelte'
   import { fly, fade } from 'svelte/transition'
   let mounted: boolean = true
   onMount(() => {
+    $orange.zIndex = -1
+    $blue.zIndex = -3
+    $red.zIndex = -2
     $orange = {
+      ...$orange,
       x: -orange.width * 1.4,
       y: $window.height - orange.height,
       scale: 1.8,
@@ -26,9 +24,9 @@
         x: 0,
         y: 0,
       },
-      zIndex: -1,
     }
     $blue = {
+      ...$blue,
       x: -$window.width,
       y: -$window.height,
       scale: 13.5,
@@ -37,9 +35,9 @@
         x: 0,
         y: 0,
       },
-      zIndex: -3,
     }
     $red = {
+      ...$red,
       x: $window.width / 2.4,
       y: -$window.height / 1.7,
       scale: 6,
@@ -48,7 +46,6 @@
         x: 1,
         y: 1,
       },
-      zIndex: -2,
     }
     mounted = true
   })
@@ -70,9 +67,9 @@
 </script>
 
 {#if alive}
-  <div class=" w-screen h-screen big_cont relative">
-    <div class="parent relative " transition:fly={{ y: +1000, duration: 300 }}>
-      <div class="container ">
+  <div class=" w-full h-full big_cont relative">
+    <div class="parent relative " transition:fly={{ y: -1000, duration: 300 }}>
+      <div class="container">
         <Link bind:alive href="../">
           <Logo white={true} />
         </Link>
@@ -100,19 +97,6 @@
 
 <style>
   .big_cont {
-    z-index: -2;
-  }
-  .eseuri {
-    grid-column: 1/-1;
-    grid-row: 5;
-    display: inherit;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: calc(var(--l_row) * 2 + var(--l_gap_row));
-    column-gap: 30px;
-    row-gap: inherit;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
   }
   .parent {
     margin-top: 70px;

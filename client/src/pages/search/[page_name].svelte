@@ -1,20 +1,17 @@
 <script lang="ts">
   import Eseu from '../../components/eseu.svelte'
   import Link from '../../components/Link.svelte'
+  import LoginButton from '../../components/LoginButton.svelte'
   import Logo from '../../components/logo.svelte'
   import Buton from '../../components/buton.svelte'
   import UploadButton from '../../components/upload_button.svelte'
-  import Fav_button from '../../components/Fav_Button.svelte'
-  import Next from '../../components/next_essay.svelte'
-  import Back from '../../components/last_essay.svelte'
-  import { metatags, ready, url, goto } from '@roxi/routify'
   import { store as orange } from '../../components/blob/Orange.svelte'
   import { store as red } from '../../components/blob/Red.svelte'
   import { store as blue } from '../../components/blob/Blue.svelte'
   import { store as window } from '../../components/Window.svelte'
   import Search from '../../components/search_bar.svelte'
-  import { onMount, tick } from 'svelte'
-  import { fly, fade } from 'svelte/transition'
+  import { onMount } from 'svelte'
+  import { fly } from 'svelte/transition'
   let eseuri = [
     { name: 'Ion', scriitor: 'Liviu Rebreanu' },
     { name: 'O scrisoare pierduta', scriitor: 'I.L. Caragiale' },
@@ -73,7 +70,7 @@
     $blue = {
       x: ($window.width - blue.width * 0.8) / 2,
       y: -blue.height * 0.635 + $window.height * 0.17,
-      scale: 13.5,
+      scale: $window.height / 20,
       rotate: 0,
       flip: {
         x: 0,
@@ -87,7 +84,6 @@
   let saved = false
 
   let alive = true
-  console.log(alive)
   $: if (mounted) {
     $orange.x = -orange.width * 1.4
     $orange.y = $window.height - orange.height
@@ -95,7 +91,6 @@
     $red.y = $window.height - red.height * 0.45
     $blue.x = ($window.width - blue.width * 0.8) / 2
     $blue.y = -blue.height * 0.635 + $window.height * 0.17
-    $blue.scale = 13.5
   }
 </script>
 
@@ -116,7 +111,7 @@
             <Buton white={true} bind:alive link="../">Profesori</Buton>
           </div>
           <div class="col-start-6 col-span-1 m-auto">
-            <Buton white={true} bind:alive link="../">Contul meu</Buton>
+            <LoginButton white={true} bind:alive />
           </div>
         </div>
         <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">
