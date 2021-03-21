@@ -48,11 +48,8 @@
   function show_caracterizari() {
     eseuri_chosen = false
   }
-
   metatags.title = 'Eseuri'
-
   let mounted = false
-
   onMount(() => {
     $orange = {
       x: 0,
@@ -89,9 +86,7 @@
     }
     mounted = true
   })
-
   let alive = true
-
   $: if (mounted) {
     $orange.y = $window.height - orange.height
     $red.x = $window.width - red.width * 1.5
@@ -117,11 +112,13 @@
             bind:alive
           />
         </div>
-        <Buton white={true} {alive} link="./">Intra in cont</Buton>
+        <Buton white={true} bind:alive link="/loginto/index"
+          >Intra in cont</Buton
+        >
       </div>
       <div class="ajutator">
-        <Buton white={true} {alive} link="./">Plagiat</Buton>
-        <Buton white={true} {alive} link="./">Profesori</Buton>
+        <Buton white={true} bind:alive link="./">Plagiat</Buton>
+        <Buton white={true} bind:alive link="./">Profesori</Buton>
       </div>
       <div class="tip_referat ">
         <button

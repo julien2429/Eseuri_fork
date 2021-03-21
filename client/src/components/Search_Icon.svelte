@@ -1,6 +1,6 @@
 <script>
   import App from '../App.svelte'
-  import About from '../pages/about.svelte'
+  import About from '../pages/_layout.svelte'
 </script>
 
 <img

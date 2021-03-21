@@ -5,7 +5,6 @@
   import { store as window } from '../components/Window.svelte'
   import { onMount } from 'svelte'
   import { ready } from '@roxi/routify'
-
   let mounted = false
   onMount(() => {
     $orange = {
@@ -18,7 +17,6 @@
         y: 0,
       },
     }
-
     $red = {
       x: $window.width - red.width,
       y: 0,
@@ -29,7 +27,6 @@
         y: 0,
       },
     }
-
     $blue = {
       x: $window.width - blue.width * 1.03,
       y: $window.height - blue.height * 0.4,
@@ -40,22 +37,18 @@
         y: 0,
       },
     }
-
     mounted = true
   })
-
   $: if (mounted) {
     $orange.y = $window.height - orange.height - 20
     $red.x = $window.width - red.width
     $blue.x = $window.width - blue.width * 1.03
     $blue.y = $window.height - blue.height * 0.4
   }
-
   const getBeeMovieScript = () =>
     fetch(
       'https://gist.githubusercontent.com/The5heepDev/a15539b297a7862af4f12ce07fee6bb7/raw/7164813a9b8d0a3b2dcffd5b80005f1967887475/entire_bee_movie_script'
     ).then(res => res.text())
-
   const script = getBeeMovieScript()
   script.then($ready)
 </script>
