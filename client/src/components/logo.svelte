@@ -1,5 +1,4 @@
 <script>
-  import { goto, url } from '@roxi/routify'
   export let white = false
 </script>
 
@@ -8,5 +7,5 @@
   class:text-white={white}
   class:text-black={!white}
 >
-  Eseuri<punct style="color:orange">.</punct>
+  Eseuri<span class="text-orange">.</span>
 </div>

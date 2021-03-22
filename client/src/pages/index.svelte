@@ -10,9 +10,7 @@
   import UploadButton from '../components/upload_button.svelte'
   import Eseu from '../components/eseu.svelte'
   import Logo from '../components/logo.svelte'
-  import LofinButton from '../components/LoginButton.svelte'
   import { fly, fade } from 'svelte/transition'
-  import LoginButton from '../components/LoginButton.svelte'
 
   let eseuri = [
     { name: 'Ion', scriitor: 'Liviu Rebreanu' },
@@ -120,7 +118,7 @@
           />
         </div>
         <div class=" row-start-1 row-span-1 col-start-6 col-span-1 my-auto">
-          <LoginButton white={true} bind:alive />
+          <Buton white={true} bind:alive link="./loginto">Intra in cont</Buton>
         </div>
         <div class="col-start-4 col-end-5 row-start-2  my-auto ">
           <Buton white={true} bind:alive link="./">Plagiat</Buton>
