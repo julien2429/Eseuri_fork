@@ -139,7 +139,7 @@
           >
         </div>
         <div class="col-span-1 col-start-6 row-span-1 row-start-3 mx-auto">
-          <UploadButton />
+          <UploadButton link={'./upload'} bind:alive />
         </div>
         {#if eseuri_chosen == true}
           <div

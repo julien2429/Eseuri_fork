@@ -1,8 +1,16 @@
-<button
-  class="bg-orange rounded-full m-auto focus:outline-none outline-none focus:md:underline"
->
-  <img class="mx-auto my-auto" alt="upload" src="../assets/VectorCross.svg" />
-</button>
+<script lang="ts">
+  import Link from './Link.svelte'
+  export let link: string
+  export let alive: boolean
+</script>
+
+<Link href={link} bind:alive>
+  <button
+    class="bg-orange rounded-full m-auto focus:outline-none outline-none focus:md:underline"
+  >
+    <img class="mx-auto my-auto" alt="upload" src="../assets/VectorCross.svg" />
+  </button>
+</Link>
 
 <style>
   img {

@@ -74,7 +74,9 @@
         class="container relative grid gap-x-l_gap_column gap-y-l_gap_row  mx-md "
       >
         <div class="row-start-1 row-span-1 col-start-1  col-span-1 my-auto">
-          <Logo />
+          <Link href="../" bind:alive>
+            <Logo />
+          </Link>
         </div>
         <div class=" row-start-1 row-span-1 col-start-3 col-span-1 my-auto">
           <Buton white={false} bind:alive link="./search">Caută</Buton>
@@ -161,7 +163,7 @@
         <div
           class="row-start-8 row-span-1 col-start-4 my-auto col-span-1 bg-oppacity-0 publish"
         >
-          <Buton white={false} bind:alive link="../">Înapoi</Buton>
+          <Buton white={false} bind:alive link="../upload">Înapoi</Buton>
         </div>
       </div>
     </div>

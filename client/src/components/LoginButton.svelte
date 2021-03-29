@@ -6,7 +6,7 @@
 </script>
 
 {#if auth}
-  <Buton {white} bind:alive link="../">Contul meu</Buton>
+  <Buton {white} bind:alive link="/my_account">Contul meu</Buton>
 {:else}
   <Buton {white} bind:alive link="../">Intra in cont</Buton>
 {/if}

@@ -4,16 +4,16 @@
   import { metatags } from '@roxi/routify'
   import { store as orange } from '../../components/blob/Orange.svelte'
   import { store as red } from '../../components/blob/Red.svelte'
-  import { store as blue } from '../../components/blob/Blue.svelte'
+  import Blue, { store as blue } from '../../components/blob/Blue.svelte'
   import { store as window } from '../../components/Window.svelte'
   import { fly } from 'svelte/transition'
   import { onMount } from 'svelte'
   import Buton from '../../components/buton.svelte'
   import Index from '../index.svelte'
-  let name = ''
-  let surname = ''
-  let school = ''
-  let isessay = true
+  import App from '../../App.svelte'
+  import Google_Docs from '../../../assets/VectorGoogle_Docs.svg'
+  import Blob from '../../components/blob/internal/Blob.svelte'
+  import Eseu from '../../components/eseu.svelte'
 
   let mounted = false
   onMount(() => {
@@ -73,13 +73,84 @@
         class="container relative grid gap-x-l_gap_column gap-y-l_gap_row  mx-md "
       >
         <div class="row-start-4 row-span-2 col-start-4 col-end-6">
-          <div class="title font-serif font-bold ">
-            Eseuri<span class="text-orange">.</span>
+          <Link href="../" bind:alive>
+            <div class="title font-serif font-bold ">
+              Eseuri<span class="text-orange">.</span>
+            </div>
+          </Link>
+        </div>
+        <div
+          class="row-start-2 row-end-8 col-start-1 col-end-3 border-black bg-opacity-20 border bg-white white_thing relative"
+        />
+        <div
+          class="row-start-2 row-end-3 col-start-1 col-end-3 mx-auto my-auto border-black relative"
+        >
+          Publică o lucrare
+        </div>
+
+        <div
+          class=" flex row-start-3 row-end-4 col-start-1 frame col-end-3 border border-black"
+        >
+          <div class="mx-sm my-auto bold  w-1/2 relative">Scrie-o aici</div>
+          <div class="flex w-1/2 my-auto justify-end">
+            <img
+              src="../../../assets/VectorScrie_aici.svg"
+              alt="Scrie aici"
+              class="mr-sm"
+            />
+          </div>
+        </div>
+        <div class="row-start-4 row-end-5 col-start-1 col-end-3  ">
+          <Link bind:alive href="../upload_configure">
+            <div class="flex w-full h-full frame bg-blue relative">
+              <div class="ml-sm my-auto bold w-auto text-white  ">
+                Încarcă un document
+              </div>
+              <div class="flex w-1/2 my-auto justify-end">
+                <img
+                  src="../../../assets/VectorIncarca_un_document.svg"
+                  alt="Scrie aici"
+                  class="mr-sm"
+                />
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div
+          class="flex  row-start-5 row-end-6 col-start-1 frame col-end-3 text-white frame_google  relative"
+        >
+          <div class="ml-sm my-auto bold w-auto  ">Încarcă din Google Docs</div>
+          <div class="flex w-1/2 my-auto justify-end">
+            <img
+              src="../../../assets/VectorGoogle_Docs.svg"
+              alt="Scrie aici"
+              class="mr-sm"
+            />
           </div>
         </div>
         <div
-          class="row-start-2 row-end-8 col-start-1 col-span-2 border-black bg-opacity-40 border bg-white white_thing"
-        />
+          class="row-start-6 row-end-7 col-start-1 frame col-end-3  relative mx-auto my-auto"
+        >
+          Ai scris de mână?
+        </div>
+        <div
+          class=" flex row-start-7 row-end-8 col-start-1 frame w-full h-full col-end-3 bg-red relative"
+        >
+          <div class=" mx-sm my-auto bold text-white w-1/2 relative">
+            Încarcă imagini/PDF
+          </div>
+          <div class="flex w-1/2 my-auto justify-end">
+            <img
+              src="../../../assets/Vectorincarca_imagini.svg"
+              alt="Scrie aici"
+              class="mr-sm"
+            />
+          </div>
+        </div>
+
+        <div class="row-start-6 row-span-1 col-start-4 col-end-6 ">
+          Perfecționează-ți-le cu cea mai extinsă colecție din România!
+        </div>
       </div>
     </div>
   </div>
@@ -118,5 +189,11 @@
     border-radius: 20px;
     width: calc((var(--l_gap_column) * 3) + (var(--l_column) * 2));
     height: calc((var(--l_gap_row) * 7) + (var(--l_row) * 6));
+  }
+  .frame {
+    border-radius: 20px;
+  }
+  .frame_google {
+    background-color: #337dfa;
   }
 </style>

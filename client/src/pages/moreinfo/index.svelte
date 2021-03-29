@@ -63,11 +63,8 @@
 </script>
 
 {#if alive}
-  <div
-    class="parent_container "
-    transition:fly={{ y: -$window.height, duration: 300 }}
-  >
-    <div class="blurry">
+  <div class="parent_container " transition:fly={{ y: -1000, duration: 300 }}>
+    <div class="blurry  w-full h-full overflow-x-visible">
       <div class="parent relative">
         <div class="grid gap-y-5 grid-rows-7 grid-cols-1 gap-x-0">
           <div class="row-start-1 ">

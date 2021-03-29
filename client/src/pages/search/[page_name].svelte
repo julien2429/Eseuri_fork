@@ -115,7 +115,7 @@
           </div>
         </div>
         <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">
-          <UploadButton />
+          <UploadButton bind:alive link={'../upload'} />
         </div>
         <div class=" search_type">
           <div class="col-start-1 col-end-4 my-auto">

@@ -169,7 +169,7 @@
         </div>
       </div>
       <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">
-        <UploadButton />
+        <UploadButton bind:alive link={'../upload'} />
       </div>
       <div class=" grid col-start-2 col-end-6 row-span-2 row-start-3 text-4xl">
         <z>{decodeURI(page_name)}<z /></z>
