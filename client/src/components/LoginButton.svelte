@@ -1,12 +1,26 @@
 <script lang="ts">
-  import { auth } from '../stores/auth'
-  import Buton from './buton.svelte'
-  export let alive: boolean
+  import {
+    Auth0LoginButton,
+    Auth0LogoutButton,
+    isAuthenticated,
+    isLoading,
+  } from '@dopry/svelte-auth0'
   export let white: boolean
+  export let alive: boolean
+  $: console.log($isAuthenticated)
+  $: console.log($isLoading)
 </script>
 
-{#if auth}
-  <Buton {white} bind:alive link="/my_account">Contul meu</Buton>
+{#if $isAuthenticated}
+  <Auth0LogoutButton
+    ><span class:text-white={white} class:text-black={!white}
+      >Ieși din cont</span
+    ></Auth0LogoutButton
+  >
 {:else}
-  <Buton {white} bind:alive link="../">Intra in cont</Buton>
+  <Auth0LoginButton preserveRoute={true}
+    ><span class:text-white={white} class:text-black={!white}
+      >Intră în cont</span
+    ></Auth0LoginButton
+  >
 {/if}
