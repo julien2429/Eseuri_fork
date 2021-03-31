@@ -63,8 +63,11 @@
 </script>
 
 {#if alive}
-  <div class="parent_container " transition:fly={{ y: -1000, duration: 300 }}>
-    <div class="blurry  w-full h-full overflow-x-visible">
+  <div
+    class="parent_container overflow-x-hidden"
+    transition:fly={{ y: -1000, duration: 300 }}
+  >
+    <div class="blurry  w-full h-full overflow-x-hidden">
       <div class="parent relative">
         <div class="grid gap-y-5 grid-rows-7 grid-cols-1 gap-x-0">
           <div class="row-start-1 ">
@@ -177,9 +180,6 @@
     outline: 0px orange;
   }
 
-  .option:focus {
-    cursor: pointer;
-  }
   .gata {
     background-color: #485696;
     border-radius: 10px;
@@ -194,19 +194,6 @@
     align-items: center;
     justify-content: center;
   }
-  .title {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    display: flex;
-    align-items: flex-end;
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
-    letter-spacing: -0.07em;
-    color: #000000;
-  }
-
   .bigtext {
     font-style: normal;
     font-weight: normal;

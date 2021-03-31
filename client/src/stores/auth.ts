@@ -1,1 +1,1 @@
-export let auth = false
+export let auth = true

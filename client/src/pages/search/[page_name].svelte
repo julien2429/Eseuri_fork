@@ -98,41 +98,41 @@
   <div class=" w-full h-screen">
     <div class="parent relative " transition:fly={{ y: -1000, duration: 300 }}>
       <div class="container">
-        <div class="top_bar">
-          <div class="col-start-1 col-span-1 m-auto">
-            <Link bind:alive href="../">
-              <Logo white={true} />
-            </Link>
-          </div>
-          <div class="col-start-4 col-span-1 m-auto">
-            <Buton white={true} bind:alive link="../">Plagiat</Buton>
-          </div>
-          <div class="col-start-5 col-span-1 m-auto">
-            <Buton white={true} bind:alive link="../">Profesori</Buton>
-          </div>
-          <div class="col-start-6 col-span-1 m-auto">
-            <LoginButton white={true} bind:alive />
-          </div>
+        <div class="col-start-1 row-span-1 row-start-1 col-span-1 m-auto">
+          <Link bind:alive href="../">
+            <Logo white={true} />
+          </Link>
         </div>
-        <div class=" grid  col-start-6 col-span-1 row-span-1 row-start-2">
+        <div class="col-start-4 row-span-1 row-start-1 col-span-1 m-auto">
+          <Buton white={true} bind:alive link="../">Plagiat</Buton>
+        </div>
+        <div class="col-start-5 col-span-1 row-span-1 row-start-1 m-auto">
+          <Buton white={true} bind:alive link="../">Profesori</Buton>
+        </div>
+        <div class="col-start-6 row-span-1 row-start-1 col-span-1 m-auto">
+          <LoginButton white={true} bind:alive />
+        </div>
+        <div
+          class=" grid  col-start-6 col-span-1 row-span-1 row-start-2 mx-auto"
+        >
           <UploadButton bind:alive link={'../upload'} />
         </div>
-        <div class=" search_type">
-          <div class="col-start-1 col-end-4 my-auto">
-            <Search {page_name} isBig={true} isAtHome={false} bind:alive />
-          </div>
-          <button
-            class="bg-white bg-opacity-0 text-white focus:outline-none outline-none focus:md:underline col-start-4 col-span-1"
-            on:click={show_eseuri}>Eseuri</button
-          >
-          <button
-            class="bg-white bg-opacity-0 text-white focus:outline-none focus:md:underline col-start-5 col-span-1"
-            on:click={show_caracterizari}>Caracterizari</button
-          >
+
+        <div class="col-start-1 row-span-1 row-start-3 col-end-4 my-auto">
+          <Search {page_name} isBig={true} isAtHome={false} bind:alive />
         </div>
+        <button
+          class="bg-white bg-opacity-0 row-span-1 row-start-3  text-white focus:outline-none outline-none focus:md:underline col-start-4 col-span-1"
+          on:click={show_eseuri}>Eseuri</button
+        >
+        <button
+          class="bg-white bg-opacity-0 text-white row-span-1 row-start-3  focus:outline-none focus:md:underline col-start-5 col-span-1"
+          on:click={show_caracterizari}>Caracterizari</button
+        >
+
         {#if eseuri_chosen == true}
           <div
-            class="eseuri overflow-x-visible"
+            class="eseuri row-start-5 grid-cols-3 grid overflow-x-visible"
             transition:fly={{ x: -100, duration: 100 }}
           >
             {#each eseuri as { name, scriitor }}
@@ -143,7 +143,7 @@
           </div>
         {:else}
           <div
-            class="eseuri overflow-x-visible"
+            class="eseuri row-start-5 grid-cols-3 grid overflow-x-visible"
             transition:fly={{ x: 100, duration: 100 }}
           >
             {#each caracterizari as { name, scriitor }}
@@ -159,30 +159,9 @@
 <style>
   .eseuri {
     grid-column: 1/-1;
-    grid-row: 5;
-    display: inherit;
-    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: calc(var(--l_row) * 2 + var(--l_gap_row));
     column-gap: 30px;
     row-gap: inherit;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-  }
-  .search_type {
-    display: inherit;
-    grid-column: 1/-1;
-    grid-row: 3 / span 1;
-    grid-row: auto;
-    grid-template-columns: repeat(4, var(--l_column));
-    column-gap: inherit;
-  }
-  .top_bar {
-    grid-column: 1/-1;
-    grid-row: 1 / span 1;
-    display: inherit;
-    grid-template-columns: inherit;
-    column-gap: inherit;
   }
   .parent {
     margin-top: 70px;
