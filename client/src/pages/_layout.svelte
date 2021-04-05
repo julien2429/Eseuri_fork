@@ -27,7 +27,6 @@
     height: 100%;
     overflow-x: hidden;
   }
-
   .bg {
     z-index: -1000;
     filter: blur(100px);

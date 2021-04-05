@@ -11,10 +11,11 @@
   import Eseu from '../components/eseu.svelte'
   import Logo from '../components/logo.svelte'
   import { fly, fade } from 'svelte/transition'
+  import LoginButton from '../components/LoginButton.svelte'
 
   let eseuri = [
     { name: 'Ion', scriitor: 'Liviu Rebreanu' },
-    { name: 'O scrisoare pierduta', scriitor: 'I.L. Caragiale' },
+    { name: 'O scrisoare gasita', scriitor: 'I.L. Caragiale' },
     {
       name: 'Ultima noapte de dragoste. Intaia noapte de razboi',
       scriitor: 'Camil Petrescu',
@@ -118,7 +119,7 @@
           />
         </div>
         <div class=" row-start-1 row-span-1 col-start-6 col-span-1 my-auto">
-          <Buton white={true} bind:alive link="./">Intra in cont</Buton>
+          <LoginButton bind:alive white={true} />
         </div>
         <div class="col-start-4 col-end-5 row-start-2  my-auto ">
           <Buton white={true} bind:alive link="./">Plagiat</Buton>
@@ -138,8 +139,8 @@
             on:click={show_caracterizari}>Caracterizari</button
           >
         </div>
-        <div class="col-span-1 col-start-6 row-span-1 row-start-3">
-          <UploadButton />
+        <div class="col-span-1 col-start-6 row-span-1 row-start-3 mx-auto">
+          <UploadButton link={'./upload'} bind:alive />
         </div>
         {#if eseuri_chosen == true}
           <div

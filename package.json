@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@dopry/svelte-auth0": "^1.0.0"
+	}
+}
