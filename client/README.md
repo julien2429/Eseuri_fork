@@ -38,6 +38,12 @@ Testează codul:
 pnpm t
 ```
 
+Pentru a testa autentificarea, este nevoie să ceri ID-ul de client Auth0 de la persoana care deține proiectul Auth0, iar apoi să creezi fișierul `.env.local` în `client` cu următorul conținut:
+
+```sh
+VITE_AUTH0_CLIENT_ID=<datele primite>
+```
+
 ## Probleme
 
 ### Variante Tailwind
