@@ -87,7 +87,7 @@
         <Buton white={false} bind:alive link="./">Profesori</Buton>
       </div>
       <div
-        class="row-start-3 row-span-1 col-start-1 col-span-3 my-auto text-lg"
+        class="row-start-3 row-span-1 col-start-1 col-span-3 my-auto text-md"
       >
         Despre lucrare
       </div>
